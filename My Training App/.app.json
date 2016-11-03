@@ -52,7 +52,7 @@
           "signinRedirect": "home"
         }
       ],
-      "title": "Login",
+      "title": "Login to the App",
       "addToNavigation": false
     },
     {
@@ -97,7 +97,7 @@
           "editScreenHeaderValue": "Edit",
           "deleteItemButton": false,
           "pullToRefresh": true,
-          "endlessScroll": true,
+          "endlessScroll": false,
           "isMapView": false,
           "serverSideSorting": false,
           "serverSidePaging": false,

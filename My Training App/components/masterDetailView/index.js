@@ -86,8 +86,6 @@ app.masterDetailView = kendo.observable({
                 }
             },
             serverFiltering: true,
-            serverPaging: true,
-            pageSize: 50
         },
         /// start data sources
         /// end data sources
