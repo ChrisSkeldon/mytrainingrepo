@@ -97,7 +97,7 @@
           "editScreenHeaderValue": "Edit",
           "deleteItemButton": false,
           "pullToRefresh": true,
-          "endlessScroll": true,
+          "endlessScroll": false,
           "isMapView": false,
           "serverSideSorting": false,
           "serverSidePaging": false,
