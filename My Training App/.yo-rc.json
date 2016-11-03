@@ -1,7 +1,8 @@
 {
   "generator-kendo-ui-mobile": {
     "dependsOn": [
-      "generator-kendo-ui-mobile@0.0.19"
+      "generator-kendo-ui-mobile@0.0.19",
+      "generator-pscAuthentication@0.0.2"
     ]
   }
 }

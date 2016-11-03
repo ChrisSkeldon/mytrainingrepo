@@ -7,36 +7,28 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet">
 
-    <link href="styles/overrides.css" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
 
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="app.js"></script>
+    <script src="lib/progress/progress.all.min.js"></script>
+    <script src="dataProviders/progressDataProvider.js"></script>
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/pscAuthenticationView/index.js"></script>
+    <script src="components/masterDetailView/index.js"></script>
+    <script src="components/authenticationView/index.js"></script>
     <script src="components/home/index.js"></script>
     <div data-role="layout" data-id="main">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
+                <a data-role="button" href="#appDrawer" data-rel="drawer" data-align="left" data-icon="drawer-button"></a>
             </div>
         </header>
-        <footer data-role="footer">
-            <div data-role="tabstrip" id="navigation-container">
-                <a href="components/home/view.html" data-icon="home">Home View</a>
-            </div>
-            <div id="navigation-container-more" style="display: none">
-            </div>
-        </footer>
-    </div>
-
-
-    <div id="navigation-show-more-view" data-role="view" data-title="Show More" data-layout="main">
-        <ul data-role="listview" data-style="inset" data-click="app.listViewClick">
-        </ul>
     </div>
 
     <div data-role="layout" data-id="main-nonav">
@@ -45,8 +37,23 @@
                 <span data-role="view-title"></span>
             </div>
         </header>
-        <footer data-role="footer">
-        </footer>
+    </div>
+
+    <div id="appDrawer" data-role="drawer" data-title="Navigation">
+        <header data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </header>
+        <ul id="navigation-container" data-role="listview">
+            <li><a href="components/home/view.html" data-icon="home">Home</a></li>
+
+            <li><a href="components/masterDetailView/view.html" data-icon="organize">Master Detail</a></li>
+
+            <li><a href="components/pscAuthenticationView/view.html" data-icon="home">psAuthentication</a></li>
+            <li id="authenticationViewModellogout"><a href="components/authenticationView/view.html?logout=true" data-position="end" data-icon="action">Sign Out</a></li>
+            <li id="pscAuthenticationViewModellogout"><a href="components/pscAuthenticationView/view.html?logout=true" data-position="end" data-icon="action">Sign Out</a></li>
+        </ul>
     </div>
     <!--  start index html save -->
     <!--  end index html save -->
