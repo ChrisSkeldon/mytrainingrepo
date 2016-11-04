@@ -80,6 +80,24 @@
                   "inputTextType": "text",
                   "placeholder": "Type here ...",
                   "dataBinding": "ItemName"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "errors",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Errors",
+                  "inputType": "group-separator"
+                },
+                {
+                  "type": "kendo-ui-mobile:editableListFormField",
+                  "name": "errorstring",
+                  "dataBindingRelationChildren": "[]",
+                  "dataBindingMultipleSelectChildren": "[]",
+                  "title": "Errors",
+                  "inputType": "textBlock",
+                  "wideFieldTitlePosition": "hidden",
+                  "value": "...."
                 }
               ],
               "name": "editableListForm2",
@@ -89,6 +107,7 @@
           "name": "masterDetailViewModel",
           "dataProvider": "progressDataProvider",
           "collection": "SIItem.cls",
+          "filterField": "ItemName",
           "headerField": "ItemName",
           "subHeaderField": "Itemnum",
           "addItemForm": false,
@@ -97,39 +116,21 @@
           "editScreenHeaderValue": "Edit",
           "deleteItemButton": false,
           "pullToRefresh": true,
-          "endlessScroll": false,
+          "endlessScroll": true,
           "isMapView": false,
-          "serverSideSorting": false,
+          "serverSideSorting": true,
+          "serverSideSortingField": "ItemName",
+          "serverSideSortingDirection": "asc",
           "serverSidePaging": false,
           "detailHeaderFieldSource": "static",
-          "detailHeaderFieldValue": "Detail"
+          "detailHeaderFieldValue": "Detail",
+          "detailSubHeaderField": "ItemName",
+          "detailDescriptionField": "CatDescription"
         }
       ],
       "title": "Master Detail",
       "addToNavigation": true,
       "icon": "organize"
-    },
-    {
-      "type": "kendo-ui-mobile:view",
-      "name": "pscAuthenticationView",
-      "components": [
-        {
-          "type": "pscAuthentication:pscAuthentication",
-          "name": "pscAuthenticationViewModel",
-          "dataProvider": "progressDataProvider",
-          "enableRegistration": false,
-          "enableLogout": true,
-          "logoutLabel": "Sign Out",
-          "enableRememberme": false,
-          "emailLabel": "UserId",
-          "passwordLabel": "Password",
-          "signinLabel": "Sign In",
-          "signinRedirect": "home"
-        }
-      ],
-      "title": "psAuthentication",
-      "addToNavigation": true,
-      "icon": "home"
     }
   ],
   "dataProviders": [

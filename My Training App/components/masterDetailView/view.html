@@ -16,8 +16,14 @@
     </header>
 
 
-    <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="inset" data-template="masterDetailViewModelTemplate" data-bind="source: masterDetailViewModel.dataSource, events: {click: masterDetailViewModel.itemClick}" data-pull-to-refresh="true"
-    data-endless-scroll="false">
+    <!--  Certain features like grouping and inset styling are not supported when endless scroll is enabled. -->
+    <form class="km-filter-form custom-filter">
+        <div class="km-filter-wrap">
+            <input type="search" placeholder="Search..." data-bind="events:{keyup: masterDetailViewModel.searchChange}">
+        </div>
+    </form>
+    <ul class="masterDetailView" data-role="listview" data-auto-bind="false" data-style="" data-template="masterDetailViewModelTemplate" data-bind="source: masterDetailViewModel.dataSource, events: {click: masterDetailViewModel.itemClick}" data-pull-to-refresh="true"
+    data-endless-scroll="true">
     </ul>
 
 

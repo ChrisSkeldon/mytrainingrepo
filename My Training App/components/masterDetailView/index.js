@@ -86,12 +86,32 @@ app.masterDetailView = kendo.observable({
                 }
             },
             serverFiltering: true,
+            serverSorting: true,
+            sort: {
+                field: 'ItemName',
+                dir: 'asc'
+            },
+            serverPaging: true,
+            pageSize: 50
         },
         /// start data sources
         /// end data sources
         masterDetailViewModel = kendo.observable({
             _dataSourceOptions: dataSourceOptions,
             _jsdoOptions: jsdoOptions,
+            searchChange: function(e) {
+                var searchVal = e.target.value,
+                    searchFilter;
+
+                if (searchVal) {
+                    searchFilter = {
+                        field: 'ItemName',
+                        operator: 'contains',
+                        value: searchVal
+                    };
+                }
+                fetchFilteredData(masterDetailViewModel.get('paramFilter'), searchFilter);
+            },
             fixHierarchicalData: function(data) {
                 var result = {},
                     layout = {};
@@ -313,16 +333,59 @@ app.masterDetailView = kendo.observable({
 
 // START_CUSTOM_CODE_masterDetailViewModel
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
+var dataSourceOptions = app.masterDetailView.masterDetailViewModel.get('_dataSourceOptions');
+dataSourceOptions.serverFiltering = true;
+dataSourceOptions.serverSorting = true;
+dataSourceOptions.serverPaging = true;
+dataSourceOptions.pageSize = 10;
+dataSourceOptions.transport = {
+    countFnName: 'Count'
+};
 
 // you can handle the beforeFill / afterFill events here. For example:
-/*
+
 app.masterDetailView.masterDetailViewModel.get('_jsdoOptions').events = {
-    'beforeFill' : [ {
-        scope : app.masterDetailView.masterDetailViewModel,
-        fn : function (jsdo, success, request) {
-            // beforeFill event handler statements ...
+    /* 'beforeFill' : [ {
+         scope : app.masterDetailView.masterDetailViewModel,
+         fn : function (jsdo, success, request) {
+             // beforeFill event handler statements ...
+         }
+     } ] */
+
+    'afterSaveChanges': [{
+        scope: app.masterDetailView.masterDetailViewModel,
+        fn: function(jsdo, success, request) {
+            var errorMsg = 'unknown error';
+            var errorPanel;
+            var resp;
+
+            console.log('success:', success, 'request:', request, 'error:', request.response._retVal);
+
+            if (!success && request.response) {
+                resp = request.response;
+
+                if (resp._retVal) {
+                    // Catches RETURN ERROR
+                    errorMsg = resp._retVal
+                } else if (resp._errors instanceof Array && resp._errors.length > 0) {
+                    // Catches AppError()
+                    errorMsg = resp._errors[0]._errorMsg;
+                } else if (resp.dsItem['prods:errors'] &&
+                    resp.dsItem['prods:errors'].ttItem instanceof Array &&
+                    resp.dsItem['prods:errors'].ttItem.length > 0) {
+                    // Catch ProDataSet errors
+
+                    errorMsg = '';
+                    resp.dsItem['prods:errors'].ttItem.forEach(function(err) {
+                        errorMsg += err['prods:error'];
+                    });
+                }
+            }
+            // alert('Error from server: ' + errorMsg);
+            errorPanel = document.getElementById('errorstringField');
+            errorPanel.innerHTML = errorMsg;
         }
-    } ]
+    }]
 };
-*/
+
 // END_CUSTOM_CODE_masterDetailViewModel
