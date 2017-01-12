@@ -4,6 +4,7 @@ app.masterDetailView = kendo.observable({
     onShow: function() {},
     afterShow: function() {}
 });
+app.localization.registerView('masterDetailView');
 
 // START_CUSTOM_CODE_masterDetailView
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
@@ -41,18 +42,10 @@ app.masterDetailView = kendo.observable({
                 dataSource.filter({});
             }
         },
-        processImage = function(img) {
 
-            if (!img) {
-                var empty1x1png = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQI12NgYAAAAAMAASDVlMcAAAAASUVORK5CYII=';
-                img = 'data:image/png;base64,' + empty1x1png;
-            }
-
-            return img;
-        },
         jsdoOptions = {
-            name: 'SIItem.cls',
-            autoFill: false
+            name: 'SIItem',
+            autoFill: true
         },
         dataSourceOptions = {
             type: 'jsdo',
@@ -192,12 +185,12 @@ app.masterDetailView = kendo.observable({
                     itemModel.ItemName = String.fromCharCode(160);
                 }
 
+                /// start detail form initialization
+                /// end detail form initialization
+
                 masterDetailViewModel.set('originalItem', itemModel);
                 masterDetailViewModel.set('currentItem',
                     masterDetailViewModel.fixHierarchicalData(itemModel));
-
-                /// start detail form initialization
-                /// end detail form initialization
 
                 return itemModel;
             },
@@ -208,15 +201,8 @@ app.masterDetailView = kendo.observable({
                 }
                 return linkChunks[0] + this.get('currentItem.' + linkChunks[1]);
             },
-            imageBind: function(imageField) {
-                if (!imageField) {
-                    return;
-                }
-                if (imageField.indexOf('|') > -1) {
-                    return processImage(this.get('currentItem.' + imageField.split('|')[0]));
-                }
-                return processImage(imageField);
-            },
+            /// start masterDetails view model functions
+            /// end masterDetails view model functions
             currentItem: {}
         });
 
@@ -233,12 +219,16 @@ app.masterDetailView = kendo.observable({
                 itemData = dataSource.getByUid(itemUid),
                 fixedData = masterDetailViewModel.fixHierarchicalData(itemData);
 
+            /// start edit form before itemData
+            /// end edit form before itemData
+
             this.set('itemData', itemData);
             this.set('editFormData', {
                 itemName: itemData.ItemName,
                 /// start edit form data init
                 /// end edit form data init
             });
+
             /// start edit form show
             /// end edit form show
         },
@@ -327,7 +317,7 @@ app.masterDetailView = kendo.observable({
 
             fetchFilteredData(param);
         });
-    });
+    });c
 
 })(app.masterDetailView);
 
@@ -337,11 +327,11 @@ var dataSourceOptions = app.masterDetailView.masterDetailViewModel.get('_dataSou
 dataSourceOptions.serverFiltering = true;
 dataSourceOptions.serverSorting = true;
 dataSourceOptions.serverPaging = true;
-dataSourceOptions.pageSize = 10;
+dataSourcxceOptions.pageSize = 10;
 dataSourceOptions.transport = {
     countFnName: 'Count'
 };
-
+console.log('in here');
 // you can handle the beforeFill / afterFill events here. For example:
 
 app.masterDetailView.masterDetailViewModel.get('_jsdoOptions').events = {
