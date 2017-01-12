@@ -1,0 +1,46 @@
+{
+  "_app": {
+    "navigationMore": "More",
+    "showMoreTitle": "Show More",
+    "qrCodeScan": "Scan"
+  },
+  "home": {
+    "title": "Heading",
+    "homeModel": {
+      "editableListForm5": {
+        "textBlock": {
+          "title": "HomePageText"
+        }
+      }
+    }
+  },
+  "authenticationView": {
+    "title": "Login to the App",
+    "authenticationViewModel": {
+      "logoutLabel": "Sign Out",
+      "emailLabel": "UserId",
+      "emailPlaceholder": "Enter your user name",
+      "passwordLabel": "Password",
+      "signinLabel": "Sign In"
+    }
+  },
+  "masterDetailView": {
+    "title": "Master Detail",
+    "masterDetailViewModel": {
+      "detailHeaderFieldValue": "Detail",
+      "editScreenHeaderValue": "Edit",
+      "editableListForm2": {
+        "itemName": {
+          "title": "Item Name",
+          "placeholder": "Type here ..."
+        },
+        "errors": {
+          "title": "Errors"
+        },
+        "errorstring": {
+          "title": "Errors"
+        }
+      }
+    }
+  }
+}

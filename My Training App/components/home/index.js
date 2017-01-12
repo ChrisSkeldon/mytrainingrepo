@@ -4,6 +4,7 @@ app.home = kendo.observable({
     onShow: function() {},
     afterShow: function() {}
 });
+app.localization.registerView('home');
 
 // START_CUSTOM_CODE_home
 // Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
@@ -25,7 +26,7 @@ app.home = kendo.observable({
     parent.set('onShow', function _onShow() {
         var that = parent;
         that.set('addFormData', {
-            home: 'Welcome to Item Viewer',
+            home: 'Test App Home Page',
             /// start add form data init
             /// end add form data init
         });

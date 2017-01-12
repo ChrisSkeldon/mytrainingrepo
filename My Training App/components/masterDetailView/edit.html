@@ -1,7 +1,7 @@
 <div data-role="view" data-title="Edit" data-model="app.masterDetailView.editItemViewModel" data-bind="events: { show: onShow }" id="masterDetailViewModelEditScreen" class="screen screen--edit edit-item-view">
     <header data-role="header">
         <div data-role="navbar" class="header-text">
-            <span>Edit</span>
+            <span data-bind="text: strings.masterDetailView.masterDetailViewModel.editScreenHeaderValue"></span>
             <a data-role="backbutton" data-align="left" data-bind="events: { click: onCancel }">Cancel</a>
             <a data-role="button" data-align="right" data-bind="events: { click: onSaveClick }">Save</a>
         </div>
@@ -14,16 +14,16 @@
                 <li class="form-content-item">
 
 
-                    <label id="itemNameField" class="field field--text">
-                        <span class="field__label">Item Name</span>
+                    <label id="itemNameField" class="field km-listview-label field--text">
+                        <span class="field__label" data-bind="text: strings.masterDetailView.masterDetailViewModel.editableListForm2.itemName.title"></span>
 
 
-                        <input id="itemName" data-bind="value: editFormData.itemName" placeholder="Type here ..." type="text">
+                        <input id="itemName" data-bind="value: editFormData.itemName" type="text">
 
                     </label>
                 </li>
                 <li class="group-separator">
-                    <h4 class="group-separator-header">Errors</h4>
+                    <h4 class="group-separator-header" data-bind="text: strings.masterDetailView.masterDetailViewModel.editableListForm2.errors.title"></h4>
                 </li>
                 <li class="form-content-item">
                     <label id="errorstringField" class="km-label-above field field--text-block">

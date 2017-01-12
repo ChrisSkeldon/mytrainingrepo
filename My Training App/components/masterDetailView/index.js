@@ -44,8 +44,8 @@ app.localization.registerView('masterDetailView');
         },
 
         jsdoOptions = {
-            name: 'SIItem',
-            autoFill: true
+            name: 'SIItem.cls',
+            autoFill: false
         },
         dataSourceOptions = {
             type: 'jsdo',
@@ -317,7 +317,7 @@ app.localization.registerView('masterDetailView');
 
             fetchFilteredData(param);
         });
-    });c
+    });
 
 })(app.masterDetailView);
 
@@ -327,7 +327,7 @@ var dataSourceOptions = app.masterDetailView.masterDetailViewModel.get('_dataSou
 dataSourceOptions.serverFiltering = true;
 dataSourceOptions.serverSorting = true;
 dataSourceOptions.serverPaging = true;
-dataSourcxceOptions.pageSize = 10;
+dataSourceOptions.pageSize = 10;
 dataSourceOptions.transport = {
     countFnName: 'Count'
 };
