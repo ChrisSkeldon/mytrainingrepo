@@ -331,7 +331,7 @@ dataSourceOptions.pageSize = 10;
 dataSourceOptions.transport = {
     countFnName: 'Count'
 };
-console.log('in here');
+
 // you can handle the beforeFill / afterFill events here. For example:
 
 app.masterDetailView.masterDetailViewModel.get('_jsdoOptions').events = {
