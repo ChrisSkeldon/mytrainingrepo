@@ -33,11 +33,19 @@ function loadData () {
         });
       })
       .fail(function ( jsdo, success, request ) {
-        console.log('jsdo fill failed:', request);
+        logError('jsdo fill failed:', request);
       });
   } else {
-    console.log('no jsdo object available');
+    logError('no jsdo object available');
   }
+}
+
+function logError(msg) {
+  logMsg('Error: ' + msg);
+}
+
+function logMsg(msg) {
+  $('#msgArea').append(msg + '\n');
 }
 
 /**
@@ -56,11 +64,11 @@ function uploadPicture() {
 
   jsdo.saveChanges()
     .done(function( jsdo, success, request ) {
-      console.log('update good');
+      logMsg('update good');
       $('#savePic').hide();
     })
     .fail(function( jsdo, success, request ) {
-      console.log('update failed');
+      logError('update failed');
     });
 }
 
@@ -82,48 +90,48 @@ function initComponent() {
         jsdo = new progress.data.JSDO('SIItem');
       } catch (e) {
         // NB. then() does not propogate errors 
-        console.log('caught err:', e)
+        logErr('caught err:', e)
       }
     })
     .then (function () {
      loadData();
     })
     .fail(function(err) {
-      console.log('my err handler', err);
+      logMsg('my err handler', err);
     });
 
   $('#pic').click(function () {
     navigator.camera.getPicture(function (imageURI) { // Worked 
                                 var image = document.getElementById('myPic');
 
-                                imageData = imageURI;
+                              //  imageData = imageURI;
 
-                              //  image.src = imageURI;
+                                image.src = imageURI;
                                 saveButton.show();
-                            //    console.log('URI:', imageURI);
+                                logMsg('URI: ' + imageURI);
                                 var reader = new FileReader();
 
                                 reader.onload = function(e) {
-                                  console.log('reading err:', err);
+                                  logError('reading err: ' + err);
                                  var rawData = reader.result;
                                 }
          
                                window.resolveLocalFileSystemURL(imageURI, 
                                  function(fileEntry) {
-                                   console.log('Resolved:', fileEntry)
+                                   logMsg('Resolved: ' + fileEntry)
                                    //  reader.readAsBinaryString(fileEntry);
                                  }, 
                                  function(evt) {
-                                  console.log('resolve url err:', evt); 
+                                  logMsg('resolve url err: ' + evt); 
                                  });
                               }, 
                               function (msg) { //Failed
-                                console.log('Picture taking failed:', msg);
+                                logError('Picture taking failed: ' + msg);
                                 saveButton.hide();
                               }, 
                               { quality: 50,
-                                destinationType: Camera.DestinationType.DATA_URL
-                              //  destinationType: Camera.DestinationType.FILE_URI
+                              //  destinationType: Camera.DestinationType.DATA_URL
+                                destinationType: Camera.DestinationType.FILE_URI
                               // destinationType: Camera.DestinationType.NATIVE_URI 
                               });
                               });   
