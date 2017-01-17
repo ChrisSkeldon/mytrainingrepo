@@ -44,7 +44,7 @@ app.localization.registerView('masterDetailView');
         },
 
         jsdoOptions = {
-            name: 'SIItem',
+            name: 'SIItem.cls',
             autoFill: false
         },
         dataSourceOptions = {

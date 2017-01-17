@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <script src="bower_components/leaflet/dist/leaflet.js"></script>
+    <link href="bower_components/leaflet/dist/leaflet.css" rel="stylesheet">
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width">
@@ -18,6 +20,7 @@
 </head>
 
 <body id="kendoUiMobileApp">
+    <script src="components/mapView/index.js"></script>
     <script src="components/test/index.js"></script>
     <script src="components/masterDetailView/index.js"></script>
     <script src="components/authenticationView/index.js"></script>
@@ -51,6 +54,8 @@
             <li><a href="components/masterDetailView/view.html" data-icon="organize"><span class="navigation-link-text" data-bind="text: strings.masterDetailView.title"></span></a></li>
 
             <li><a href="components/test/view.html" data-icon="camera"><span class="navigation-link-text" data-bind="text: strings.test.title"></span></a></li>
+
+            <li><a href="components/mapView/view.html" data-icon="organize"><span class="navigation-link-text" data-bind="text: strings.mapView.title"></span></a></li>
             <li id="authenticationViewModellogout"><a href="components/authenticationView/view.html?logout=true" data-position="end" data-icon="action"><span class="navigation-link-text" data-bind="text: strings.authenticationView.authenticationViewModel.logoutLabel"></span></a></li>
         </ul>
     </div>

@@ -18,7 +18,7 @@
     var bootstrap = function() {
         $(function() {
             app.mobileApp = new kendo.mobile.Application(document.body, {
-                initial: 'components/authenticationView/view.html'
+                initial: 'components/test/view.html'
             });
 
             kendo.bind($('.navigation-link-text'), app.navigation.viewModel);

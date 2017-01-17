@@ -150,6 +150,40 @@
       "title": "Test Area",
       "addToNavigation": true,
       "icon": "camera"
+    },
+    {
+      "type": "kendo-ui-mobile:view",
+      "name": "mapView",
+      "components": [
+        {
+          "type": "kendo-ui-mobile:editableList",
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "addScreenExtraFields": [],
+          "editScreenExtraFields": [],
+          "components": [],
+          "name": "mapViewModel",
+          "dataProvider": "progressDataProvider",
+          "collection": "SICustomer",
+          "headerField": "_errorString",
+          "addItemForm": false,
+          "editItemForm": false,
+          "deleteItemButton": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "isMapView": true,
+          "mapApiKey": "pk.eyJ1IjoiY2hyaXNza2VsZG9uIiwiYSI6ImNpeTFoYXM4ZzAwNjMyem44aDVpbndyYXUifQ.2DGLENO_Eib-x2rCm1A8JA",
+          "geoPointField": "_errorString",
+          "geoPointFieldAdditional": "_errorString",
+          "serverSideSorting": false,
+          "serverSidePaging": false,
+          "detailHeaderFieldSource": "static",
+          "detailHeaderFieldValue": "Detail"
+        }
+      ],
+      "title": "Map",
+      "addToNavigation": true,
+      "icon": "organize"
     }
   ],
   "dataProviders": [
@@ -166,6 +200,6 @@
   ],
   "name": "kendoUiMobileApp",
   "navigation": "drawer",
-  "view": "authenticationView",
+  "view": "test",
   "skin": "native"
 }

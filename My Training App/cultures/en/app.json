@@ -5,7 +5,7 @@
     "qrCodeScan": "Scan"
   },
   "home": {
-    "title": "Home",
+    "title": "Heading",
     "homeModel": {
       "editableListForm5": {
         "textBlock": {
@@ -25,7 +25,7 @@
     }
   },
   "masterDetailView": {
-    "title": "Products",
+    "title": "Master Detail",
     "masterDetailViewModel": {
       "detailHeaderFieldValue": "Detail",
       "editScreenHeaderValue": "Edit",
@@ -45,5 +45,11 @@
   },
   "test": {
     "title": "Test Area"
+  },
+  "mapView": {
+    "title": "Map",
+    "mapViewModel": {
+      "detailHeaderFieldValue": "Detail"
+    }
   }
 }
