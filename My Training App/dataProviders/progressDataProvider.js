@@ -3,8 +3,8 @@
 (function() {
     var jsdoSession,
         jsdoSettings = {
-            serviceURI: 'https://localhost:8811/demo',
-            catalogURIs: 'https://localhost:8811/demo/static/DemoService.json',
+            serviceURI: 'http://localhost:8810/demo',
+            catalogURIs: 'http://localhost:8810/demo/static/DemoService.json',
             authenticationModel: 'basic'
         },
         userFunctions = {
